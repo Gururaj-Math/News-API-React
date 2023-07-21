@@ -1,0 +1,23 @@
+.NavContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 70px;
+    height: 90px;
+    background: #2B2D42;
+    color: #fff;
+}
+.NavContainer .logo{
+    letter-spacing: 2px;
+}
+.NavContainer ul{
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.NavContainer ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1em;
+}
