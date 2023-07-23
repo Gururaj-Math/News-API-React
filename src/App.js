@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './components/Navbar'
 import Menu from './components/Menu'
 import News from './components/News'
+import Footer from './components/Footer'
 import { useState, useEffect } from 'react'
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
       <div className='App'>
         <Menu active={active} setActive={setActive} setCategory={setCategory}/>
         <News items={items}/>
+        <Footer />
       </div>
     </div>
   )

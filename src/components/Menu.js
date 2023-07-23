@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 
 const Menu = ({active, setActive, setCategory}) => {
   const links = [
@@ -15,6 +16,8 @@ const Menu = ({active, setActive, setCategory}) => {
     setActive(id)
     setCategory(value)
   }
+
+  const [searchQuery, setSearchQuery] = useState("")
 
   return(
     <nav className='menu'>

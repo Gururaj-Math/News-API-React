@@ -1,0 +1,21 @@
+.footer{
+    height: 200px;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    flex-direction: column;
+    gap: 1em;
+}
+.pLinks{
+    display: flex;
+    gap: 20px;
+}
+.pLinks a{
+    text-decoration: none;
+}
+.pLinks i{
+    color: #fff;
+    font-size: 1.5em;
+}
