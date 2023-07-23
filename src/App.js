@@ -1,32 +1,29 @@
-import './App.css';
-import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
-import Newsapi from './components/Newsapi';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import Navbar from './components/Navbar';
+import React from 'react'
+import Navbar from './components/Navbar'
+import Menu from './components/Menu'
+import News from './components/News'
+import { useState, useEffect } from 'react'
 
-function App() {
-  const client = new QueryClient({
-    defaultOptions: {
-      queries: {
-        refetchOnWindowFocus: false, 
-      },
-    },
-  });
+const App = () => {
+  const[items, setItems]=useState([])
+  const[active, setActive]=useState(1)
+  const[category, setCategory]=useState("general")
+
+  useEffect(()=>{
+    fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=239662c80ccd4e01a72488a2ab0002e2`)
+    .then((res)=>res.json())
+    .then(data=>setItems(data.articles))
+  }, [category])
+
   return (
-    <div className="App">
-    <QueryClientProvider client={client}>
-    <Router>
-    <Navbar />
-      <Routes>
-        <Route path='/' Component={Newsapi}></Route>
-        <Route path='/sports' Component={Newsapi}></Route>
-        <Route path='/business' Component={Newsapi}></Route>
-        <Route path='/entertainment' Component={Newsapi}></Route>
-      </Routes>
-      </Router>
-      </QueryClientProvider>
+    <div>
+      <Navbar />
+      <div className='App'>
+        <Menu active={active} setActive={setActive} setCategory={setCategory}/>
+        <News items={items}/>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
